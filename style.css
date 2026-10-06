@@ -171,3 +171,15 @@ footer.site a{color:#CFE0FF}
 .check-card.warn{background:linear-gradient(160deg,#0B1430,#5b3a07)}
 .check-card .btn{font-size:17px;padding:14px 26px}
 .nfc-explain a{font-weight:700}
+.fb form{display:flex;flex-direction:column;gap:10px;max-width:720px}
+.fb label{font-weight:700;margin-top:18px}
+.fb textarea,.fb input{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;width:100%}
+.stars button{font-size:38px;background:none;border:0;color:#C9D2E8;cursor:pointer;padding:0 4px}
+.stars button.on{color:#FFB800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.chips button.on{background:var(--night);color:#fff;border-color:var(--night)}
+.nps button{min-width:44px;padding:10px 0;text-align:center}
+.fb .btn{margin-top:22px;align-self:flex-start;border:0;cursor:pointer;font-size:18px}
+.fb-msg{margin:6px 0 0}.fb-msg.warn{color:#B42318}
+.fb-done{background:var(--paper);border-radius:20px;padding:28px}

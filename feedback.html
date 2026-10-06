@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tester feedback – Will-O-Wisp</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Terms of use for Will-O-Wisp NFC Alarm.">
+<meta property="og:title" content="Terms of use – Will-O-Wisp">
+<meta property="og:description" content="Terms of use for Will-O-Wisp NFC Alarm.">
+<meta property="og:image" content="og.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Lexend:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top"><div class="wrap">
+<a class="brand" href="index.html"><svg viewBox="20 18 68 68" aria-hidden="true"><path fill="#2F80ED" d="M54,24 C57,35 71,43 71,60 C71,71.5 63.4,80 54,80 C44.6,80 37,71.5 37,61 C37,52 42,46.5 46,41.5 C46.5,48 49,52.5 53,54 C49.5,45 50,34 54,24 Z"/><path fill="#56CCF2" d="M54.5,39 C57,47.5 64.5,52 64.5,63 C64.5,70 59.8,74.5 54,74.5 C48.2,74.5 43.5,70 43.5,64 C43.5,58.5 46.5,55 49,51.5 C49.8,56.5 52,59 55.5,59.5 C53.5,53 52.5,46 54.5,39 Z"/><path fill="#E6FBFF" d="M54,59 C57.3,59 59.5,62.5 59.5,66 C59.5,69.3 57.1,71.5 54,71.5 C50.9,71.5 48.5,69.3 48.5,66 C48.5,62.5 50.7,59 54,59 Z"/></svg>Will-O-Wisp</a>
+<nav><a class="hide-sm" href="index.html#how">How it works</a><a class="hide-sm" href="index.html#pro">Pro</a><a class="hide-sm" href="index.html#setup">Setup</a><a href="index.html#faq">FAQ</a><a href="privacy.html">Privacy</a></nav>
+</div></div>
+<main class="legal fb">
+<h1>Tester feedback</h1>
+<p class="date">Thank you for testing Will-O-Wisp. Two minutes, eight questions. Be brutally honest.</p>
+
+<form id="fb" novalidate>
+<label>1. Overall, how much do you like the app?</label>
+<div class="stars" data-name="rating">
+<button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+</div>
+
+<label>2. Did the alarm actually get you out of bed?</label>
+<div class="chips" data-name="woke">
+<button type="button" data-v="yes">Yes, every time</button><button type="button" data-v="mostly">Mostly</button><button type="button" data-v="no">No</button><button type="button" data-v="not_tried">Haven't used it as my alarm yet</button>
+</div>
+
+<label>3. How easy was the setup (signing in, registering tags)?</label>
+<div class="chips" data-name="setup">
+<button type="button" data-v="easy">Easy</button><button type="button" data-v="ok">OK</button><button type="button" data-v="hard">Confusing</button>
+</div>
+
+<label for="liked">4. What did you like most?</label>
+<textarea id="liked" maxlength="1000" rows="3"></textarea>
+
+<label for="problems">5. Anything broken, confusing or annoying? (please include what you were doing)</label>
+<textarea id="problems" maxlength="2000" rows="4"></textarea>
+
+<label for="wish">6. One feature you wish it had?</label>
+<textarea id="wish" maxlength="1000" rows="2"></textarea>
+
+<label>7. Would you pay ₹299 a year for Pro (10 tags, Crazy mode, no ads)?</label>
+<div class="chips" data-name="pay">
+<button type="button" data-v="yes">Yes</button><button type="button" data-v="maybe">Maybe</button><button type="button" data-v="no">No</button>
+</div>
+
+<label>8. How likely are you to recommend it to a friend? (0 = not at all, 10 = definitely)</label>
+<div class="chips nps" data-name="nps">
+<button type="button" data-v="0">0</button><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="5">5</button><button type="button" data-v="6">6</button><button type="button" data-v="7">7</button><button type="button" data-v="8">8</button><button type="button" data-v="9">9</button><button type="button" data-v="10">10</button>
+</div>
+
+<label for="phone">Your phone model (optional)</label>
+<input id="phone" maxlength="80" placeholder="e.g. Samsung Galaxy A55">
+
+<label for="who">Your name or email (optional, only if you're happy for us to reply)</label>
+<input id="who" maxlength="120">
+
+<button type="submit" class="btn btn-main" id="send">Send feedback</button>
+<p id="msg" class="fb-msg" role="status" aria-live="polite"></p>
+</form>
+</main>
+<script>
+(function () {
+  var PROJECT = 'willo-wisp-nfcalarm';
+  var URL = 'https://firestore.googleapis.com/v1/projects/' + PROJECT + '/databases/(default)/documents/feedback';
+  var picked = {};
+  document.querySelectorAll('.stars, .chips').forEach(function (group) {
+    var name = group.getAttribute('data-name');
+    group.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        picked[name] = b.getAttribute('data-v');
+        group.querySelectorAll('button').forEach(function (x) {
+          var on = group.classList.contains('stars') ? (+x.getAttribute('data-v') <= +picked[name]) : x === b;
+          x.classList.toggle('on', on);
+        });
+      });
+    });
+  });
+  function val(id) { return (document.getElementById(id).value || '').trim(); }
+  var msg = document.getElementById('msg'), btn = document.getElementById('send');
+  document.getElementById('fb').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (!picked.rating) { msg.textContent = 'Please give a star rating (question 1).'; msg.className = 'fb-msg warn'; return; }
+    var f = {
+      rating: { integerValue: String(+picked.rating) },
+      woke: { stringValue: picked.woke || '' },
+      setup: { stringValue: picked.setup || '' },
+      pay: { stringValue: picked.pay || '' },
+      nps: { integerValue: String(picked.nps === undefined ? -1 : +picked.nps) },
+      liked: { stringValue: val('liked') },
+      problems: { stringValue: val('problems') },
+      wish: { stringValue: val('wish') },
+      phone: { stringValue: val('phone') },
+      who: { stringValue: val('who') },
+      browser: { stringValue: (navigator.userAgent || '').slice(0, 200) },
+      createdAt: { timestampValue: new Date().toISOString() }
+    };
+    btn.disabled = true; msg.textContent = 'Sending…'; msg.className = 'fb-msg';
+    try {
+      var r = await fetch(URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: f }) });
+      if (!r.ok) throw new Error(r.status);
+      document.getElementById('fb').innerHTML = '<div class="fb-done"><h2>Thank you! 🔥</h2><p>Your feedback went straight to the developer. Keep the app installed for the full 14 days — it really helps.</p></div>';
+    } catch (err) {
+      btn.disabled = false;
+      msg.innerHTML = 'Couldn\'t send right now. Please try again, or email <a href="mailto:willowispapp@gmail.com?subject=Will-O-Wisp%20feedback">willowispapp@gmail.com</a>.';
+      msg.className = 'fb-msg warn';
+    }
+  });
+})();
+</script>
+
+<footer class="site"><div class="wrap">
+<span>© 2026 JIYAA · Will-O-Wisp · Made in India</span>
+<a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a><a href="delete-account.html">Delete account</a><a href="mailto:willowispapp@gmail.com">willowispapp@gmail.com</a>
+</div></footer>
+</body>
+</html>
