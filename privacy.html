@@ -33,7 +33,7 @@
 <p>The following is stored only on your device. We cannot see it, and it is not sent to our servers:</p>
 <ul>
 <li>Your alarm time and settings, bedtime and reminder preferences, theme and sound choices.</li>
-<li>The serial numbers (UIDs) of the NFC tags you register, and the names you give them. A tag's serial number identifies the sticker, not you.</li>
+<li>The serial numbers (UIDs) of the NFC tags you register, a scrambled fingerprint of each QR code or barcode you add (not the code itself), and the names you give them.</li>
 <li>Your wake-up history, streak, badges, streak freezes and alertness game scores.</li>
 </ul>
 <p>This information is deleted when you uninstall the app or clear its data. You can also reset your history and badges in Settings.</p>
@@ -61,10 +61,11 @@
 <h2>Permissions the app uses</h2>
 <ul>
 <li><strong>NFC</strong> — to read your tags when you register them and when you tap them to stop the alarm.</li>
+<li><strong>Camera</strong> — only while you scan a QR code or barcode, to add it as a tag or to stop the alarm. Codes are read on your phone; no photos or video are saved or sent anywhere.</li>
 <li><strong>Alarms, full-screen notifications, foreground service, wake lock, vibration</strong> — so the alarm rings on time, appears over the lock screen and keeps ringing until you finish.</li>
 <li><strong>Notifications</strong> — for the alarm, bedtime reminders and badge announcements.</li>
 <li><strong>Run at start-up</strong> — to restore your alarm after the phone restarts.</li>
-<li><strong>Flashlight</strong> — used by Sunrise mode to light up before the alarm. The app never takes photos or videos.</li>
+<li><strong>Flashlight</strong> — used by Sunrise mode before the alarm and to light up codes while scanning. The app never takes or stores photos or videos.</li>
 <li><strong>Internet</strong> — for ads, purchases, usage statistics, crash reports and the optional email list.</li>
 </ul>
 
