@@ -183,3 +183,15 @@ footer.site a{color:#CFE0FF}
 .fb .btn{margin-top:22px;align-self:flex-start;border:0;cursor:pointer;font-size:18px}
 .fb-msg{margin:6px 0 0}.fb-msg.warn{color:#B42318}
 .fb-done{background:var(--paper);border-radius:20px;padding:28px}
+
+/* Google Play badge (official artwork, padding built into the image) */
+.play-badge{display:inline-block;line-height:0}
+.play-badge img{height:64px;width:auto}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.get-it{text-align:center;margin-top:28px}
+.get-it p{margin:0 0 6px;font-weight:600}
+.final .play-badge img{height:72px}
+.nav-get{font-weight:700;color:var(--ember)!important}
+@media (max-width:600px){.play-badge img{height:56px}}
+
+.hero .kicker{font-size:18px;font-weight:600;opacity:.9;margin:-6px 0 14px}
