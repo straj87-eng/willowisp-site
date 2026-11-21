@@ -195,3 +195,5 @@ footer.site a{color:#CFE0FF}
 @media (max-width:600px){.play-badge img{height:56px}}
 
 .hero .kicker{font-size:18px;font-weight:600;opacity:.9;margin:-6px 0 14px}
+
+.top nav a{white-space:nowrap}
